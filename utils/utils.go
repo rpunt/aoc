@@ -1,5 +1,7 @@
 package utils
 
+// "borrowed" from https://github.com/golangroma/aoc/blob/main/utils/utils.go
+
 import (
 	"log"
 	"os"
