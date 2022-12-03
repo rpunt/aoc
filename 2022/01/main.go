@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	input := utils.ReadFile("inputs.txt")
+	input := utils.ReadFile("input.txt")
 
 	fmt.Printf("part 1: %v\n", Part1(input))
 	fmt.Printf("part 2: %v\n", Part2(input))
@@ -51,19 +51,3 @@ func total_elvish_calories(inventory []string) []int {
 	elvish_calorie_load = append(elvish_calorie_load, calories)
 	return elvish_calorie_load
 }
-
-func sliceAtoi(sa []string) []int {
-	si := make([]int, 0, len(sa))
-	for _, a := range sa {
-		i, err := strconv.Atoi(a)
-		utils.CheckErr(err)
-		si = append(si, i)
-	}
-
-	return si
-}
-
-/*
-part 1: 70116
-part 2: 206582
-*/
