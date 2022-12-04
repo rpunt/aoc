@@ -6,7 +6,7 @@ import (
 	utils "github.com/rpunt/aoc_utils"
 )
 
-var sample []string = utils.ReadFile("input.txt")
+var sample []string = utils.ReadFile("testable.txt")
 
 func TestPartOne(t *testing.T) {
 	tt := []struct {
@@ -17,7 +17,7 @@ func TestPartOne(t *testing.T) {
 		{
 			name:     "example",
 			input:    sample,
-			expected: 602,
+			expected: 2,
 		},
 	}
 
@@ -39,7 +39,7 @@ func TestPartTwo(t *testing.T) {
 		{
 			name:     "example",
 			input:    sample,
-			expected: 891,
+			expected: 4,
 		},
 	}
 
