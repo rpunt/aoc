@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/rpunt/aoc/utils"
+	utils "github.com/rpunt/aoc_utils"
 )
 
 type sectionsPair struct {

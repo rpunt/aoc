@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/rpunt/aoc/utils"
+	utils "github.com/rpunt/aoc_utils"
 )
 
 var sample []string = utils.ReadFile("testable.txt")

@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/rpunt/aoc/utils"
+	utils "github.com/rpunt/aoc_utils"
 )
 
 type Choice int

@@ -5,7 +5,7 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/rpunt/aoc/utils"
+	utils "github.com/rpunt/aoc_utils"
 )
 
 func main() {
