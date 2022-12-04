@@ -6,7 +6,7 @@ import (
 	utils "github.com/rpunt/aoc_utils"
 )
 
-var sample []string = utils.ReadFile("testable.txt")
+var sample []string = utils.ReadFile("input.txt")
 
 func TestPartOne(t *testing.T) {
 	tt := []struct {
@@ -17,7 +17,7 @@ func TestPartOne(t *testing.T) {
 		{
 			name:     "example",
 			input:    sample,
-			expected: 2,
+			expected: 602,
 		},
 	}
 
@@ -30,24 +30,24 @@ func TestPartOne(t *testing.T) {
 	}
 }
 
-// func TestPartTwo(t *testing.T) {
-// 	tt := []struct {
-// 		name     string
-// 		input    []string
-// 		expected int
-// 	}{
-// 		{
-// 			name:     "example",
-// 			input:    sample,
-// 			expected: 70,
-// 		},
-// 	}
+func TestPartTwo(t *testing.T) {
+	tt := []struct {
+		name     string
+		input    []string
+		expected int
+	}{
+		{
+			name:     "example",
+			input:    sample,
+			expected: 891,
+		},
+	}
 
-// 	for _, tc := range tt {
-// 		t.Run(tc.name, func(t *testing.T) {
-// 			if got := Part2(tc.input); got != tc.expected {
-// 				t.Errorf("Part2 = %v, want %v", got, tc.expected)
-// 			}
-// 		})
-// 	}
-// }
+	for _, tc := range tt {
+		t.Run(tc.name, func(t *testing.T) {
+			if got := Part2(tc.input); got != tc.expected {
+				t.Errorf("Part2 = %v, want %v", got, tc.expected)
+			}
+		})
+	}
+}
