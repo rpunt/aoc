@@ -26,21 +26,21 @@ started_directions = false
 boxes = []
 directions = []
 inputs.each do |line|
-  if line.empty?
+  if line.strip.empty?
+    puts "found blank line, transitioning"
     finished_stack_description = true
     started_directions = true
     next
   end
-
   column_count = 0
   unless finished_stack_description
-    inputs.each do |line|
-      finished_stack_description = true if line.empty?
-      column_count = line.length if line.length > column_count
-      boxes << line
-    end
+    puts "got box: #{line}"
+    finished_stack_description = true if line.empty?
+    column_count = line.length if line.length > column_count
+    boxes << line
   end
   if started_directions
+    puts "got directions: #{line}"
     directions << line
   end
 end
