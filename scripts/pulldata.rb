@@ -48,7 +48,7 @@ end
 xpath_selector = {
   2022 => {
     'parent_readme' => '//article',
-    'testdata' => '//pre/code'
+    'testdata' => 'pre//code'
   },
   2021 => {
     'parent_readme' => '//article',
@@ -62,14 +62,21 @@ xpath_selector = {
 
 data = Nokogiri::HTML.parse(getdata(options[:year], options[:day]))
 
-parent_readme_data = data.xpath(xpath_selector[options[:year]]['parent_readme']).text
-                         .gsub(/\n/, "\n\n")
-                         .gsub(/^---/, '#')
-                         .gsub(/ ---/, "\n\n## Part 1\n\n")
+# parent_readme_data = data.xpath(xpath_selector[options[:year]]['parent_readme']).text
+#                          .gsub(/\n/, "\n\n")
+#                          .gsub(/^---/, '#')
+#                          .gsub(/ ---/, "\n\n## Part 1\n\n")
 testable_inputs_data = data.xpath(xpath_selector[options[:year]]['testdata']).text
 
-writedata("#{__dir__}/#{options[:year]}/#{'%02d' % options[:day]}/README.md", parent_readme_data)
-writedata("#{__dir__}/#{options[:year]}/#{'%02d' % options[:day]}/inputs/README.md", "# testable inputs\n\nToday's example data is in `testable.txt`; you can add your own dataset as well.")
-writedata("#{__dir__}/#{options[:year]}/#{'%02d' % options[:day]}/inputs/testable.txt", testable_inputs_data)
-
-puts "Please review the contents of README.md and #{options[:year]}/#{'%02d' % options[:day]}/README.md for formatting errors."
+writedata(
+  "#{File.expand_path('../', __FILE__)}/../#{options[:year]}/#{'%02d' % options[:day]}/testable.txt",
+  testable_inputs_data
+)
+writedata(
+  "#{File.expand_path('../', __FILE__)}/../#{options[:year]}/#{'%02d' % options[:day]}/main.go",
+  File.read("#{File.expand_path('../', __FILE__)}/../template/main.go")
+)
+writedata(
+  "#{File.expand_path('../', __FILE__)}/../#{options[:year]}/#{'%02d' % options[:day]}/main_test.go",
+  File.read("#{File.expand_path('../', __FILE__)}/../template/main_test.go")
+)
