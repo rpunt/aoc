@@ -16,18 +16,27 @@ end
 inputs = []
 File.open("#{__dir__}/#{options[:inputfile]}.txt").each { |line| inputs << line.chomp }
 
-# sample input
-#     [D]
-# [N] [C]
-# [Z] [M] [P]
-#  1   2   3
+def getMarker(windowsize, inputs)
+  inputs = inputs[0].split('')
+  inputs.each_with_index do |input,index|
+    next if index < windowsize
+    window = Array.new
 
-def Part1(inputs)
+    ((index - windowsize)..(index - 1)).each do |x|
+      window.push(inputs[x])
+    end
+    next if window.uniq.length < windowsize
+    return index if window.uniq.length == windowsize
+  end
   return 999
 end
 
+def Part1(inputs)
+  return getMarker(4, inputs)
+end
+
 def Part2(inputs)
-  return 999
+  return getMarker(14, inputs)
 end
 
 part1 = Part1(inputs)
@@ -41,10 +50,10 @@ if $debug
   end
 end
 
-# puts "Part 2: #{part2}"
-# if $debug
-#   test_value_part_2 = "MCD"
-#   if part2 != test_value_part_2
-#     puts "TEST VALUE IS WRONG: got #{part2}, wanted #{test_value_part_2}"
-#   end
-# end
+puts "Part 2: #{part2}"
+if $debug
+  test_value_part_2 = 19
+  if part2 != test_value_part_2
+    puts "TEST VALUE IS WRONG: got #{part2}, wanted #{test_value_part_2}"
+  end
+end
