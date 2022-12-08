@@ -48,7 +48,7 @@ end
 xpath_selector = {
   2022 => {
     'parent_readme' => '//article',
-    'testdata' => 'pre//code'
+    'testdata' => '//pre/code'
   },
   2021 => {
     'parent_readme' => '//article',
@@ -79,4 +79,8 @@ writedata(
 writedata(
   "#{File.expand_path('../', __FILE__)}/../#{options[:year]}/#{'%02d' % options[:day]}/main_test.go",
   File.read("#{File.expand_path('../', __FILE__)}/../template/main_test.go")
+)
+writedata(
+  "#{File.expand_path('../', __FILE__)}/../#{options[:year]}/#{'%02d' % options[:day]}/input.txt",
+  File.read("#{File.expand_path('../', __FILE__)}/../template/input.txt")
 )
