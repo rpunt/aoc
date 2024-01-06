@@ -15,21 +15,13 @@ path = args.inputfile + ".txt"
 
 input = [line.rstrip() for line in open(path, 'r').readlines()]
 
-# def numeric?(char)
-#   char.match?(/[[:digit:]]/)
-# end
-
 def firstdigit(line):
-  # line.split('').each do |char|
-  #   return char.to_i if numeric?(char)
-  # end
-  return 0
+  digits = [c for c in line if c.isdigit()]
+  return int(digits[0])
 
 def lastdigit(line):
-  # line.reverse.split('').each do |char|
-  #   return char.to_i if numeric?(char)
-  # end
-  return 0
+  digits = [c for c in line if c.isdigit()]
+  return int(digits[-1])
 
 def Part1(input):
   sum = 0
@@ -38,7 +30,12 @@ def Part1(input):
   return sum
 
 def Part2(input):
-  return 0
+  sum = 0
+  numbers = list(enumerate(("one", "two", "three", "four", "five", "six", "seven", "eight", "nine"), 1))
+  for k,v in numbers:
+    print(k) # 1
+    print(v) # one
+  return sum
 
 part1 = Part1(input)
 print(part1)
