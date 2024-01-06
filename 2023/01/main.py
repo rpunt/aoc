@@ -35,14 +35,12 @@ def Part1(input):
   sum = 0
   for line in input:
     sum += firstdigit(line)*10 + lastdigit(line)
-
   return sum
 
 def Part2(input):
   return 0
 
 part1 = Part1(input)
-
 print(part1)
 if args.testing:
   test_value_part_1 = 142
@@ -50,10 +48,8 @@ if args.testing:
     print('TEST VALUE IS WRONG: got {}, wanted {}'.format(part1, test_value_part_1))
 
 # part2 = Part2(input)
-# puts "Part 2: #{part2}"
-# if $debug
+# print(part2)
+# if args.testing:
 #   test_value_part_2 = 999
-#   if part2 != test_value_part_2
-#     puts "TEST VALUE IS WRONG: got #{part2}, wanted #{test_value_part_2}"
-#   end
-# end
+#   if part1 != test_value_part_2:
+#     print('TEST VALUE IS WRONG: got {}, wanted {}'.format(part2, test_value_part_2))
