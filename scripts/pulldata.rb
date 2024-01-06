@@ -46,9 +46,13 @@ end
 
 # set the xpath selectors appropriate for the year in question
 xpath_selector = {
+  2023 => {
+    'parent_readme' => '//article',
+    'testdata' => '//pre/code'
+  },
   2022 => {
     'parent_readme' => '//article',
-    'testdata' => 'pre//code'
+    'testdata' => '//pre/code'
   },
   2021 => {
     'parent_readme' => '//article',
@@ -77,6 +81,14 @@ writedata(
   File.read("#{File.expand_path('../', __FILE__)}/../template/main.go")
 )
 writedata(
+  "#{File.expand_path('../', __FILE__)}/../#{options[:year]}/#{'%02d' % options[:day]}/main.rb",
+  File.read("#{File.expand_path('../', __FILE__)}/../template/main.rb")
+)
+writedata(
   "#{File.expand_path('../', __FILE__)}/../#{options[:year]}/#{'%02d' % options[:day]}/main_test.go",
   File.read("#{File.expand_path('../', __FILE__)}/../template/main_test.go")
+)
+writedata(
+  "#{File.expand_path('../', __FILE__)}/../#{options[:year]}/#{'%02d' % options[:day]}/input.txt",
+  File.read("#{File.expand_path('../', __FILE__)}/../template/input.txt")
 )

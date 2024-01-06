@@ -13,8 +13,7 @@ if options[:testing]
   $debug = true
 end
 
-inputs = []
-File.open("#{__dir__}/#{options[:inputfile]}.txt").each { |line| inputs << line.chomp }
+inputs = File.read("#{__dir__}/#{options[:inputfile]}.txt").split
 
 def Part1(inputs)
   return 0
