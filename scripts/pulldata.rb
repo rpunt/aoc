@@ -81,6 +81,10 @@ writedata(
   File.read("#{File.expand_path('../', __FILE__)}/../template/main.go")
 )
 writedata(
+  "#{File.expand_path('../', __FILE__)}/../#{options[:year]}/#{'%02d' % options[:day]}/main.rb",
+  File.read("#{File.expand_path('../', __FILE__)}/../template/main.rb")
+)
+writedata(
   "#{File.expand_path('../', __FILE__)}/../#{options[:year]}/#{'%02d' % options[:day]}/main_test.go",
   File.read("#{File.expand_path('../', __FILE__)}/../template/main_test.go")
 )
