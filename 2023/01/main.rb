@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+require 'optimist'
+
+options = Optimist::options do
+  opt :inputfile, "which inputfile should I use?", :type => :string, :default => 'input'
+  opt :testing, "use testing inputs?", :type => :bool, :default => false
+end
+
+$debug = false
+if options[:testing]
+  options[:inputfile] = 'testable'
+  $debug = true
+end
+
+inputs = File.read("#{__dir__}/#{options[:inputfile]}.txt").split
+
+def numeric?(char)
+  char.match?(/[[:digit:]]/)
+end
+
+def firstdigit(line)
+  line.split('').each do |char|
+    return char.to_i if numeric?(char)
+  end
+end
+
+def lastdigit(line)
+  line.reverse.split('').each do |char|
+    return char.to_i if numeric?(char)
+  end
+end
+
+def Part1(inputs)
+  sum = 0
+  inputs.each do |line|
+    sum += firstdigit(line)*10 + lastdigit(line)
+  end
+  return sum
+end
+
+def Part2(inputs)
+  return 0
+end
+
+part1 = Part1(inputs)
+part2 = Part2(inputs)
+
+puts "Part 1: #{part1}"
+if $debug
+  test_value_part_1 = 142
+  if part1 != test_value_part_1
+    puts "TEST VALUE IS WRONG: got #{part1}, wanted #{test_value_part_1}"
+  end
+end
+
+# puts "Part 2: #{part2}"
+# if $debug
+#   test_value_part_2 = 999
+#   if part2 != test_value_part_2
+#     puts "TEST VALUE IS WRONG: got #{part2}, wanted #{test_value_part_2}"
+#   end
+# end
