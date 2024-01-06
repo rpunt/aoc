@@ -46,6 +46,10 @@ end
 
 # set the xpath selectors appropriate for the year in question
 xpath_selector = {
+  2023 => {
+    'parent_readme' => '//article',
+    'testdata' => '//pre/code'
+  },
   2022 => {
     'parent_readme' => '//article',
     'testdata' => '//pre/code'
