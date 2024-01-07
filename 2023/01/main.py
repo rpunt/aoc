@@ -34,16 +34,28 @@ def Part1(input):
   return sum
 
 def Part2(input):
-  sum = 0
+  sum = first_digit = last_digit = 0
   number_words = [(item, i) for i, item in enumerate("one two three four five six seven eight nine".split(), 1)]
+
   for line in input2:
     orig_line = line
-    for k,v in number_words:
-      # k = one, v = 1
-      line = line.replace(k, str(v))
-    linesum = firstdigit(line)*10 + lastdigit(line)
+    first_digit = last_digit = 0
+
+    for i, char in enumerate(line):
+      if char.isdigit():
+        last_digit = int(char)
+        if first_digit == 0:
+          first_digit = last_digit
+      else:
+        for digit_word, digit_value in number_words:
+          if line[i:i + len(digit_word)] == digit_word:
+            last_digit = digit_value
+            if first_digit == 0:
+              first_digit = digit_value
+            break
+
+    linesum = first_digit*10 + last_digit
     sum += linesum
-    print(orig_line + "\t" + line + "\t" + str(linesum))
   return sum
 
 part1 = Part1(input)
@@ -57,7 +69,7 @@ else:
 part2 = Part2(input2)
 if args.testing:
   test_value_part_2 = 281
-  if part1 != test_value_part_2:
+  if part2 != test_value_part_2:
     print('TEST VALUE IS WRONG: got {}, wanted {}'.format(part2, test_value_part_2))
 else:
   print(part2)
