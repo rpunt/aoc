@@ -28,16 +28,16 @@ part2 = Part2(inputs)
 
 puts "Part 1: #{part1}"
 if $debug
-  test_value_part_1 = 8
+  test_value_part_1 = 999
   if part1 != test_value_part_1
     puts "TEST VALUE IS WRONG: got #{part1}, wanted #{test_value_part_1}"
   end
 end
 
-# puts "Part 2: #{part2}"
-# if $debug
-#   test_value_part_2 = 999
-#   if part2 != test_value_part_2
-#     puts "TEST VALUE IS WRONG: got #{part2}, wanted #{test_value_part_2}"
-#   end
-# end
+puts "Part 2: #{part2}"
+if $debug
+  test_value_part_2 = 999
+  if part2 != test_value_part_2
+    puts "TEST VALUE IS WRONG: got #{part2}, wanted #{test_value_part_2}"
+  end
+end

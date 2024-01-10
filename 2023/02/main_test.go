@@ -17,7 +17,7 @@ func TestPartOne(t *testing.T) {
 		{
 			name:     "Part1",
 			input:    sample,
-			expected: 8,
+			expected: 999,
 		},
 	}
 
