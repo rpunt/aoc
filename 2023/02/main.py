@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+from colorama import Fore
 
 parser = argparse.ArgumentParser(description="specify input file")
 parser.add_argument('-i', '--inputfile', metavar="Inputfile", type=str, help="which input file should I use?", default='input')
@@ -25,9 +26,9 @@ part1 = Part1(input)
 if args.testing:
   test_value_part_1 = 8
   if part1 != test_value_part_1:
-    print('TEST VALUE IS WRONG: got {}, wanted {}'.format(part1, test_value_part_1))
+    print(Fore.RED + 'TEST VALUE IS WRONG: got {}, wanted {}'.format(part1, test_value_part_1))
   else:
-    print('Part 1: success')
+    print(Fore.GREEN + 'Test 1')
 else:
   print(part1)
 
@@ -35,8 +36,8 @@ part2 = Part2(input)
 if args.testing:
   test_value_part_2 = 999
   if part1 != test_value_part_2:
-    print('TEST VALUE IS WRONG: got {}, wanted {}'.format(part2, test_value_part_2))
+    print(Fore.RED + 'TEST VALUE IS WRONG: got {}, wanted {}'.format(part2, test_value_part_2))
   else:
-    print('Part 2: success')
+    print(Fore.GREEN + 'Test 2')
 else:
   print(part2)
