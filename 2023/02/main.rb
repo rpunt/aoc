@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'optimist'
+require 'colorize'
 
 options = Optimist::options do
   opt :inputfile, "which inputfile should I use?", :type => :string, :default => 'input'
@@ -26,18 +27,24 @@ end
 part1 = Part1(inputs)
 part2 = Part2(inputs)
 
-puts "Part 1: #{part1}"
 if $debug
-  test_value_part_1 = 999
+  test_value_part_1 = 8
   if part1 != test_value_part_1
-    puts "TEST VALUE IS WRONG: got #{part1}, wanted #{test_value_part_1}"
+    puts "TEST VALUE IS WRONG: got #{part1}, wanted #{test_value_part_1}".red
+  else
+    puts "Part 1: success".green
   end
+else
+  puts "Part 1: #{part1}"
 end
 
-puts "Part 2: #{part2}"
 if $debug
   test_value_part_2 = 999
   if part2 != test_value_part_2
-    puts "TEST VALUE IS WRONG: got #{part2}, wanted #{test_value_part_2}"
+    puts "TEST VALUE IS WRONG: got #{part2}, wanted #{test_value_part_2}".red
+  else
+    puts "Part 2: success".green
   end
+else
+  puts "Part 2: #{part2}"
 end

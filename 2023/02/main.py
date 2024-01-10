@@ -27,7 +27,9 @@ if args.testing:
   if part1 != test_value_part_1:
     print('TEST VALUE IS WRONG: got {}, wanted {}'.format(part1, test_value_part_1))
   else:
-    print(part1)
+    print('Part 1: success')
+else:
+  print(part1)
 
 part2 = Part2(input)
 if args.testing:
@@ -35,4 +37,6 @@ if args.testing:
   if part1 != test_value_part_2:
     print('TEST VALUE IS WRONG: got {}, wanted {}'.format(part2, test_value_part_2))
   else:
-    print(part2)
+    print('Part 2: success')
+else:
+  print(part2)
