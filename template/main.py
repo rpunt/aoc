@@ -28,7 +28,7 @@ if args.testing:
   if part1 != test_value_part_1:
     print(Fore.RED + 'TEST VALUE IS WRONG: got {}, wanted {}'.format(part1, test_value_part_1))
   else:
-    print(Fore.GREEN + 'Test 1')
+    print(Fore.GREEN + 'Test 1: {}'.format(part1))
 else:
   print(part1)
 
@@ -38,6 +38,6 @@ if args.testing:
   if part1 != test_value_part_2:
     print(Fore.RED + 'TEST VALUE IS WRONG: got {}, wanted {}'.format(part2, test_value_part_2))
   else:
-    print(Fore.GREEN + 'Test 2')
+    print(Fore.GREEN + 'Test 2: {}'.format(part2))
 else:
   print(part2)

@@ -5,6 +5,25 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Python: Testing",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "cwd": "${fileDirname}",
+      "args": [ "-t" ]
+    },
+    {
+      "name": "Python: Answer",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "cwd": "${fileDirname}"
+    },
+    {
       "name": "Launch test function",
       "type": "go",
       "request": "launch",
