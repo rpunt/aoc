@@ -10,7 +10,7 @@ require 'fileutils'
 today = Time.new
 
 options = Optimist.options do
-  opt :year, 'data: target year', type: :integer, default: today.year
+  opt :year, 'data: target year', type: :integer, default: 2023 # today.year
   opt :day, 'data: target day', type: :integer, default: today.day
 end
 
