@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 import argparse
+import re
 from colorama import Fore
 
+# region setup
 parser = argparse.ArgumentParser(description="specify input file")
 parser.add_argument('-i', '--inputfile', metavar="Inputfile", type=str, help="which input file should I use?", default='input')
 parser.add_argument('-t', '--testing', help = 'use testing inputs', action = 'store_true')
@@ -15,10 +17,15 @@ if args.testing == True:
 path = args.inputfile + ".txt"
 
 input = [line.rstrip() for line in open(path, 'r').readlines()]
+#endregion
 
+# region calculate
 def Part1(input):
   sum = 0
   for line in input:
+    for line in input:
+      re.findall(r'\d+', line) # return a list of all numbers in the string
+
     for char in line.split():
       # if char.is_digit():
         print('.')
@@ -29,7 +36,9 @@ def Part1(input):
 
 def Part2(input):
   return 0
+#endregion
 
+#region main
 part1 = Part1(input)
 if args.testing:
   test_value_part_1 = 4361
@@ -49,3 +58,4 @@ if args.testing:
     print(Fore.GREEN + 'Test 2: {}'.format(part2))
 else:
   print(part2)
+#endregion
