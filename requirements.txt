@@ -1,2 +1,5 @@
 argparse
+collections
 colorama
+math
+re
