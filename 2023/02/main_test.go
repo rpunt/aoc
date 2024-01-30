@@ -17,7 +17,7 @@ func TestPartOne(t *testing.T) {
 		{
 			name:     "Part1",
 			input:    sample,
-			expected: 999,
+			expected: 8,
 		},
 	}
 
@@ -39,7 +39,7 @@ func TestPartTwo(t *testing.T) {
 		{
 			name:     "Part2",
 			input:    sample,
-			expected: 999,
+			expected: 2286,
 		},
 	}
 
